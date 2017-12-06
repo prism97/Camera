@@ -32,12 +32,12 @@ public class MainActivity extends AppCompatActivity {
                 Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
                 String pictureName = getPictureName();
-                File path = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + File.separator + "/PrescripXion" + File.separator);
+
+                File path = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsolutePath() + "/PrescripXion");
                 if(!path.exists()){
                     path.mkdirs();
                 }
                 File image = new File(path, pictureName);
-
                 Uri pictureUri = Uri.fromFile(image);
                 cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, pictureUri);
                 startActivityForResult(cameraIntent, CAMERA_REQUEST);
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     private String getPictureName(){
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
         String timeStamp = sdf.format(new Date());
-        return "Plane place image"+timeStamp+".jpg";
+        return "PresImg"+timeStamp+".jpg";
     }
 
     @Override
