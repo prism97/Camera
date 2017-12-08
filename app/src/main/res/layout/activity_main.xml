@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffc1b5"
     tools:context="com.example.user.camera.MainActivity">
+
 
     <Button
         android:id="@+id/camera"
@@ -13,10 +15,11 @@
         android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="70dp"
-        android:onClick="dispatchTakePic"
         android:text="camera"
+        android:background="@android:color/holo_red_light"
         tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="434dp" />
+        tools:layout_editor_absoluteY="434dp"
+        tools:ignore="HardcodedText" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -29,8 +32,8 @@
         android:minHeight="300dp"
         android:minWidth="300dp"
         app:srcCompat="@android:color/background_light"
+        tools:ignore="HardcodedText"
         tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="16dp"
-        />
+        tools:layout_editor_absoluteY="16dp" />
 
 </RelativeLayout>
