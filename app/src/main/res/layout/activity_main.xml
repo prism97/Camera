@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffc1b5"
+    android:background="#ffcac6"
     tools:context="com.example.user.camera.MainActivity">
 
 
@@ -14,12 +14,16 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="40dp"
+        android:background="#ff3838"
+        android:fontFamily="sans-serif"
+        android:radius="100dp"
         android:text="camera"
-        android:background="@android:color/holo_red_light"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText"
         tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="434dp"
-        tools:ignore="HardcodedText" />
+        tools:layout_editor_absoluteY="434dp" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -27,11 +31,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="49dp"
         android:clickable="false"
         android:contentDescription="todo"
-        android:minHeight="300dp"
-        android:minWidth="300dp"
-        app:srcCompat="@android:color/background_light"
+        android:minHeight="320dp"
+        android:minWidth="320dp"
+        android:visibility="visible"
+        app:srcCompat="@drawable/pres"
         tools:ignore="HardcodedText"
         tools:layout_editor_absoluteX="42dp"
         tools:layout_editor_absoluteY="16dp" />

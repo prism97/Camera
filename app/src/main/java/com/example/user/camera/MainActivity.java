@@ -15,17 +15,18 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
+
 public class MainActivity extends AppCompatActivity {
     private static final int CAMERA_REQUEST = 1888;
+    Button button;
     ImageView imageView;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        button = findViewById(R.id.camera);
         imageView = findViewById(R.id.imageView);
-        Button button = findViewById(R.id.camera);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
                 String pictureName = getPictureName();
 
                 File path = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsolutePath() + "/PrescripXion");
-                if(!path.exists()){
+                if (!path.exists()) {
                     path.mkdirs();
                 }
                 File image = new File(path, pictureName);
@@ -46,21 +47,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-    private String getPictureName(){
+    private String getPictureName() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
         String timeStamp = sdf.format(new Date());
-        return "PresImg"+timeStamp+".jpg";
+        return "PresImg" + timeStamp + ".jpg";
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==RESULT_OK){
-            if(requestCode==CAMERA_REQUEST){
-                Bitmap cameraImage = (Bitmap)data.getExtras().get("data");
-                imageView.setImageBitmap(cameraImage);
-            }
+        if (resultCode == RESULT_OK && requestCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap cameraImage = (Bitmap) extras.get("data");
+            imageView.setImageBitmap(cameraImage);
         }
     }
 }
